@@ -4,7 +4,7 @@ if (!empty($_SERVER['SCRIPT_FILENAME']) && 'functions.php' == basename($_SERVER[
 die ('Please do not load this page directly, Hassan!');
 
 // Plug it
-header('X-Powered-By: Semantics are everything. me@kennethreitz.com for more info.');
+header('X-Powered-By: 48Web');
 
 // Add awesome brower classes to body tag
 add_filter('body_class','browser_body_class');
@@ -37,6 +37,16 @@ function custom_logo() { ?>
 <?php }
 
 add_action('login_head', 'custom_logo');
+
+// Sidebars
+if ( function_exists('register_sidebar') )
+	register_sidebar(array('name'=>'Sidebar',
+	'before_widget' => '<li class="widget">',
+	'after_widget' => '</li>',
+	'before_title' => '<h2 class="widgettitle">',
+	'after_title' => '</h3>',
+));
+
 
 
 
