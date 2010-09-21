@@ -1,14 +1,17 @@
-<?php get_header(); ?>
+<?php
+add_action('wp_head', 'page_head');
+add_action('wp_footer', 'page_foot');
+get_header();
+function page_head(){?><?php }
+function page_foot(){?><?php }?>
 
-<?php if (have_posts()): while (have_posts()): the_post(); ?>
 	<div id="content">
 		<div class="post">
-			<h1><?php the_title(); ?></h1>
-			<p>These aren't the droids you're looking for</p>	
+			<h1>404 Uh-Oh!</h1>
+			<p>Sorry, we were unable to find the page you were looking for. </p>
 		</div>
 	</div><!--#end content-->
 	<div id="sidebar">
 		<?php get_sidebar(); ?>
 	</div><!--#end sidebar-->
-	
-<?php endwhile; endif; get_footer(); ?>
+<?php get_footer(); ?>
