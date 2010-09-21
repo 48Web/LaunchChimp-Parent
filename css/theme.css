@@ -1,8 +1,8 @@
 /* layout */
 .container { width: 960px; margin: 0 auto; }
 #header { clear: both; }
-#content { float: left; width: 600px; }
-#sidebar { float: left; width: 360px; }
+#content { float: left; width: 700px; }
+#sidebar { float: left; width: 260px; }
 #footer { clear: both; }
 
 /* navigation */
