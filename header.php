@@ -15,7 +15,9 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" />
 
 	<!--Scripts--> 
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery-1.4.2.min.js"></script>
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="<?php bloginfo('template_url'); ?>/jquery-1.4.2.min.js"><\/script>')</script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.browser.addEnvClass.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.hilightnav.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/init.js"></script>
