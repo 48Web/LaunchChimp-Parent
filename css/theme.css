@@ -6,6 +6,7 @@
 	#header #nav {}
 #content { float: left; width: 600px; }
 #sidebar { float: left; width: 360px; }
+#footer { clear: both; }
 
 /* navigation */
 #nav ul { list-style: none;   }

@@ -12,23 +12,7 @@
 	
 	<!--Stylesheets-->
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css" type="text/css" media="screen" charset="utf-8" />
-	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" />
-
-	<!--Scripts--> 
-	<!-- Fall back to local jQuery if not loaded from Google CDN Properly -->
-	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
-	<script type="text/javascript">
-		$(document).ready(function init() { 
-			// jQuery init function
-		});
-	</script>
-	
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.browser.addEnvClass.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.hilightnav.js"></script>
-	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/init.js"></script>
-	 
+	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" /
 	
 	
 	<?php if (ereg('iPhone', $_SERVER['HTTP_USER_AGENT']) || ereg('iPod', $_SERVER['HTTP_USER_AGENT']) || ereg('iPad',$_SERVER['HTTP_USER_AGENT'])): ?>
@@ -49,11 +33,25 @@
 		<meta name="viewport" content="width=960" />
 
 		<?php // Top Up Image Gallery (.top_up) ?>
-		<script type="text/javascript" src="http://gettopup.com/releases/latest/top_up-min.js"></script>
+		<!--<script type="text/javascript" src="http://gettopup.com/releases/latest/top_up-min.js"></script>-->
 		
 	<?php endif ?>
 
 	<?php wp_head(); ?>
+	
+	<!--Scripts--> 
+	<!-- If we failed to load Google's CDN jQUery, load our local version -->
+	<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
+	<script type="text/javascript">
+		jQuery(document).ready(function init() { 
+			// jQuery init function
+		});
+	</script>
+	
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.browser.addEnvClass.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.hilightnav.js"></script>
+	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/init.js"></script>
+	 
 	
 </head>
 <body <?php body_class(); ?>>

@@ -1,10 +1,11 @@
-</div>
 <div id="footer">
 	<?php // Footer ?>
-</div>
-</div>
+	&copy; <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
+</div><!--#end footer-->
+</div><!--#end container-->
+
 <div class="hide">
-<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 </div>
 
 </body>

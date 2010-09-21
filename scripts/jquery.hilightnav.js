@@ -1,4 +1,4 @@
-$.fn.markCurrentLocation = function() {
+jQuery.fn.markCurrentLocation = function() {
 	var path = window.location.href
 	return this.each(function(){
 		var self = $(this);
