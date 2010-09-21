@@ -10,9 +10,11 @@
 	<link rel="icon" type="image/png" href="<?php bloginfo('template_url'); ?>/img/favicon.ico" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	
+	<!--Stylesheets-->
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" />
 
+	<!--Scripts--> 
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.browser.addEnvClass.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.hilightnav.js"></script>
@@ -47,11 +49,10 @@
 	<div class="container">
 		<div id="header">
 			<div id="nav">
-				<li> <a href="/">Home</a> </li>
-				<li> <a href="/gallery">Gallery</a> </li>
-				<li> <a href="/contact">Contact</a> </li>
-				<li> <a href="/etc">Etc</a> </li>
+				<ul>
+					<li> <a href="/">Home</a> </li>
+					<?php wp_list_pages('title_li='); ?>
+				</ul>
 			</div>
 		</div>
-		<div id="content">
-			<?php // Content ?>
+		
