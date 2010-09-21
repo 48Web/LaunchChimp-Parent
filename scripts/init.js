@@ -1,11 +1,11 @@
-$(function(){
-	$('#header #nav a').markCurrentLocation();
+jQuery(function(){
+	jQuery('#header #nav a').markCurrentLocation();
 	
-	if($.browser.mobile)
-		$('#comments').hide();
+	if(jQuery.browser.mobile)
+		jQuery('#comments').hide();
 	
-	if($.browser.msie)
-		$('.lu:first-child').addClass('first-child')
+	if(jQuery.browser.msie)
+		jQuery('.lu:first-child').addClass('first-child')
 });
 
 

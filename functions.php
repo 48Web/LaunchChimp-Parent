@@ -1,7 +1,14 @@
 <?php 
 // Saftey first.
 if (!empty($_SERVER['SCRIPT_FILENAME']) && 'functions.php' == basename($_SERVER['SCRIPT_FILENAME']))
-die ('Please do not load this page directly, Hassan!');
+die ('Please do not load this page directly!');
+
+// Include jQuery
+if( !is_admin()){
+   wp_deregister_script('jquery'); 
+   wp_register_script('jquery', ("http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"), false, '1.4.2'); 
+   wp_enqueue_script('jquery');
+}
 
 // Plug it
 header('X-Powered-By: 48Web');

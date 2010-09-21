@@ -1,5 +1,5 @@
 <?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('Sidebar') ) : ?>
-	<!ÐDefault sidebar info goes hereÐ>
+	<!--Default sidebar info goes here-->
 	<h2>Recent Posts</h2>
     <ul>
 	    <?php

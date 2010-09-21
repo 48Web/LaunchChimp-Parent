@@ -15,13 +15,21 @@
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" />
 
 	<!--Scripts--> 
-	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script>!window.jQuery && document.write('<script src="<?php bloginfo('template_url'); ?>/jquery-1.4.2.min.js"><\/script>')</script>
+	<!-- Fall back to local jQuery if not loaded from Google CDN Properly -->
+	
+	<script type="text/javascript">
+		$(document).ready(function init() { 
+			// jQuery init function
+			alert("hit");
+		});
+	</script>
+	
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.browser.addEnvClass.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/jquery.hilightnav.js"></script>
 	<script type="text/javascript" src="<?php bloginfo('template_url'); ?>/scripts/init.js"></script>
 	 
+	
+	
 	<?php if (ereg('iPhone', $_SERVER['HTTP_USER_AGENT']) || ereg('iPod', $_SERVER['HTTP_USER_AGENT']) || ereg('iPad',$_SERVER['HTTP_USER_AGENT'])): ?>
 		
 		<meta name="viewport" content="initial-scale=1.0">
