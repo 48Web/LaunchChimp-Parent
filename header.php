@@ -16,11 +16,12 @@
 
 	<!--Scripts--> 
 	<!-- Fall back to local jQuery if not loaded from Google CDN Properly -->
-	
+	<!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script>!window.jQuery && document.write('<script src="js/jquery-1.4.2.min.js"><\/script>')</script>
 	<script type="text/javascript">
 		$(document).ready(function init() { 
 			// jQuery init function
-			alert("hit");
 		});
 	</script>
 	
