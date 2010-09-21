@@ -27,10 +27,10 @@ table {
 .block	{ display: block; }
 .inline	{ display: inline; }
 .clearfix   { display:inline-block; }
+.clearall { clear: both; }
 .hide	{ display: none; }
 .fleft 	{ float: left; }
 .fright	{ float: right; }
-.fclear	{ clear: both; }
 .hi 	{ background-color: rgb(255, 255, 204); }
 .sub 	{ vertical-align: sub; }
 .super 	{ vertical-align: super; }

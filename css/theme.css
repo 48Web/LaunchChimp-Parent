@@ -1,9 +1,6 @@
 /* layout */
-
 .container { width: 960px; margin: 0 auto; }
-
-#header {  }
-	#header #nav {}
+#header { clear: both; }
 #content { float: left; width: 600px; }
 #sidebar { float: left; width: 360px; }
 #footer { clear: both; }
@@ -11,3 +8,9 @@
 /* navigation */
 #nav ul { list-style: none;   }
 #nav ul li { display: inline; }
+
+/* style */
+#header {}
+#nav {}
+#sidebar {}
+#footer {}
