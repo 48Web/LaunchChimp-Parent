@@ -13,6 +13,7 @@
 	<!--Stylesheets-->
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css" type="text/css" media="screen" charset="utf-8" />
 	<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/theme.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/wp.css" type="text/css" media="screen" charset="utf-8" />
 	
 	<!--Mobile-->
 	<?php if (ereg('iPhone', $_SERVER['HTTP_USER_AGENT']) || ereg('iPod', $_SERVER['HTTP_USER_AGENT']) || ereg('iPad',$_SERVER['HTTP_USER_AGENT'])): ?>
@@ -31,10 +32,6 @@
 		
 	<?php else: ?>
 		<meta name="viewport" content="width=960" />
-
-		<?php // Top Up Image Gallery (.top_up) ?>
-		<!--<script type="text/javascript" src="http://gettopup.com/releases/latest/top_up-min.js"></script>-->
-		
 	<?php endif ?>
 
 	<?php wp_head(); ?>
