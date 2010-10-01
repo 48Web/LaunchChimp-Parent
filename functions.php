@@ -10,9 +10,6 @@ if( !is_admin()){
    wp_enqueue_script('jquery');
 }
 
-// Plug it
-header('X-Powered-By: 48Web');
-
 // Add awesome brower classes to body tag
 add_filter('body_class','browser_body_class');
 function browser_body_class($classes) {
@@ -38,8 +35,8 @@ add_filter( 'the_generator', create_function('$a', "return null;") );
 function custom_logo() { ?> 
 	<style type="text/css">
 		h1 a { background-image: url(
-			<?php get_bloginfo('template_directory'); ?>/img/logo-login.gif
-		) !important) }
+			<?php get_bloginfo('template_directory'); ?>/img/logo.gif
+		) !important; }
     </style>
 <?php }
 
@@ -47,7 +44,7 @@ add_action('login_head', 'custom_logo');
 
 // Admin Footer
 function remove_footer_admin () {
-	echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | WordPress Theme Framework by <a href="http://48Web.com" target="_blank">48Web</a>';
+	echo 'Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a> | Have WordPress Questions? <a href="http://48Web.com" target="_blank">48Web can help!</a>';
 }
 
 add_filter('admin_footer_text', 'remove_footer_admin');
