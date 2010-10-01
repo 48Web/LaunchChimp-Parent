@@ -35,7 +35,7 @@ add_filter( 'the_generator', create_function('$a', "return null;") );
 function custom_logo() { ?> 
 	<style type="text/css">
 		h1 a { background-image: url(
-			<?php get_bloginfo('template_directory'); ?>/img/logo.gif
+			<?php get_bloginfo('template_directory'); ?>/img/logo-login.gif
 		) !important; }
     </style>
 <?php }
