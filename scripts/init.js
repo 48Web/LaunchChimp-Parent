@@ -1,6 +1,4 @@
 jQuery(function(){
-	//jQuery('#header #nav a').markCurrentLocation();
-	
 	if(jQuery.browser.mobile)
 		jQuery('#comments').hide();
 	
