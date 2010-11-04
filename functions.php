@@ -58,11 +58,4 @@ if ( function_exists('register_sidebar') )
 	'after_title' => '</h3>',
 ));
 
-
-
-
-
-
-
-
-
+require_once( get_template_directory() . '/lib/admin/theme-options.php' );
