@@ -54,9 +54,6 @@
 	<div class="container">
 		<div id="header">
 			<div id="nav">
-				<ul>
-					<li> <a href="/">Home</a> </li>
-					<?php wp_list_pages('title_li='); ?>
-				</ul>
+				<?php theme_nav(); ?>
 			</div>
 		</div><!--#end header-->

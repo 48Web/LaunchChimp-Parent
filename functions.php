@@ -58,8 +58,26 @@ if ( function_exists('register_sidebar') )
 	'after_title' => '</h3>',
 ));
 
-if (function_exists('add_theme_support')) {
-	add_theme_support('menus');
+// menu support
+function theme_addmenus() {
+	register_nav_menus(
+		array(
+			'main_nav' => 'The Main Menu',
+		)
+	);
 }
+add_action( 'init', 'theme_addmenus' );
+
+function theme_nav() {
+    if ( function_exists( 'wp_nav_menu' ) )
+        wp_nav_menu( 'menu=main_nav&fallback_cb=theme_nav_fallback' );
+    else
+        theme_nav_fallback();
+}
+
+function theme_nav_fallback() {
+    wp_page_menu( 'show_home=Home' );
+}
+
 
 require_once( get_template_directory() . '/lib/admin/theme-options.php' );
