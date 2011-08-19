@@ -10,6 +10,22 @@
                     <?php echo the_content(); ?>
                 </div>
 
+				<form id="signup" action="<?=$_SERVER['PHP_SELF']; ?>" method="get">
+				  <fieldset>
+					<legend>Join Our Mailing List</legend>
+
+					  <label for="email" id="address-label">Email Address
+						<span id="response">
+							<? require_once('lib/theme/mailchimp.php'); if($_GET['submit']){ echo storeAddress(); } ?>
+						  </span>
+					  </label>
+					  <input type="text" name="email" id="email" />
+					  <input type="button" value="Signup Now" />
+
+					  <div id="no-spam">We'll never spam or give this address away</div>
+				  </fieldset>
+				</form>
+
                 <?php if(comments_open()): ?>
                     <div id="comments">
                         <?php comments_template(); ?>
@@ -21,5 +37,25 @@
 	<div class="sidbear">
 		<?php get_sidebar(); ?>
 	</div><!--#end sidebar -->
+
+	<script>
+		$(document).ready(function() {
+			$('#signup').submit(function() {
+				// update user interface
+				$('#response').html('Adding email address...');
+
+				// Prepare query string and send AJAX request
+				$.ajax({
+					url: 'lib/theme/mailchimp.php',
+					data: 'ajax=true&email=' + escape($('#email').val()),
+					success: function(msg) {
+						$('#response').html(msg);
+					}
+				});
+
+				return false;
+			});
+		});
+	</script>
 
 <?php get_footer(); ?>

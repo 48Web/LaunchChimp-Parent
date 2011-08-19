@@ -1,15 +1,30 @@
 <?php
-$themename = "Skeletor";
-$shortname = "skl";
+$themename = "LaunchChimp";
+$shortname = "lc";
 
 /* setup option vars */
+/* see http://wpshout.com/create-an-advanced-options-page-in-wordpress-part-2/ for setting up options */
 $options = array(
     array(
-        "desc" => __("Theme Options"),
+        "desc" => __("LaunchChimp Options"),
         "type" => "title"
     ),
     array("type" => "open"),
     /* INSERT THEME OPTIONS HERE */
+	array(
+		"name" => __("MailChimp API Key"),
+		"desc" => __('<a href="http://admin.mailchimp.com/account/api/" target="_blank">Grab your API Key</a>'),
+		"id"   => $shortname."_mailchimp_api_key",
+		"std"  => "",
+		"type" => "text"
+	),
+	array(
+		"name" => __("MailChimp List ID"),
+		"desc" => __('To get your List ID <a href="http://admin.mailchimp.com/lists/" target="_blank">go view your lists on MailChimp</a>. Click the "settings" and scroll down to find your unique id for the list'),
+		"id"   => $shortname."_mailchimp_list_id",
+		"std"  => "",
+		"type" => "text"
+	),
     array("type" => "close")
 );
 
@@ -36,7 +51,7 @@ function theme_add_admin() {
                 }
             }
 
-            header("Location: themes.php?page=functions.php&saved=true");
+            header("Location: themes.php?page=theme-options.php&saved=true");
             die;
 
         } else if ('reset' == $_REQUEST['action']) {
@@ -45,7 +60,7 @@ function theme_add_admin() {
                 delete_option($value['id']);
             }
 
-            header("Location: themes.php?page=functions.php&reset=true");
+            header("Location: themes.php?page=theme-options.php&reset=true");
             die;
 
         }
