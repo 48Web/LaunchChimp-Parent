@@ -80,4 +80,41 @@ function theme_nav_fallback() {
 }
 
 
-require_once( get_template_directory() . '/lib/admin/theme-options.php' );
+require_once( get_template_directory() .'/lib/admin/theme-options.php' );
+
+function mailchimp_add() {
+	
+	/* get theme options */
+	global $options;
+	foreach ($options as $value) {
+	    if (get_option( $value['id'] ) === FALSE) { $$value['id'] = $value['std']; }
+	    else { $$value['id'] = get_option( $value['id'] ); }
+	}
+	
+	$email = ( isset( $_POST['email'] ) ) ? $_POST['email'] : '';
+	
+	if(empty($email)) {
+		echo "No Email Address Provided";
+		die();
+	}
+
+	if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*$/i", $email)) {
+		echo "Email address is invalid";
+		die();
+	}
+
+	// require mailchimp php class
+	require_once('lib/theme/MCAPI.class.php');
+
+	$api = new MCAPI($lc_mailchimp_api_key);
+	
+	if($api->listSubscribe($lc_mailchimp_list_id, $email, '') === true) {
+		echo "Success! Check your email to confirm sign up.";
+		die();
+	} else {
+		echo "Error! " .$api->errorMessage;
+		die();
+	}
+}
+add_action('wp_ajax_mailchimp_add', 'mailchimp_add');
+add_action('wp_ajax_nopriv_mailchimp_add', 'mailchimp_add');

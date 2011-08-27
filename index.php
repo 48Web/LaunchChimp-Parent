@@ -1,6 +1,8 @@
 <?php /* Template Name: Index*/ ?>
 
-<?php get_header(); ?>
+<?php 
+	get_header(); 
+?>
 
 	<div id="content">
 	    <?php if (have_posts()): while (have_posts()): the_post(); ?>
@@ -16,11 +18,12 @@
 
 					  <label for="email" id="address-label">Email Address
 						<span id="response">
-							<? require_once('lib/theme/mailchimp.php'); if($_GET['submit']){ echo storeAddress(); } ?>
-						  </span>
+							
+						
+						</span>
 					  </label>
 					  <input type="text" name="email" id="email" />
-					  <input type="button" value="Signup Now" />
+					  <input type="submit" value="Signup Now" />
 
 					  <div id="no-spam">We'll never spam or give this address away</div>
 				  </fieldset>
@@ -37,19 +40,26 @@
 	<div class="sidbear">
 		<?php get_sidebar(); ?>
 	</div><!--#end sidebar -->
-
+	
 	<script>
-		$(document).ready(function() {
-			$('#signup').submit(function() {
+		jQuery(document).ready(function() {
+			jQuery('#signup').submit(function() {
 				// update user interface
-				$('#response').html('Adding email address...');
+				jQuery('#response').html('Adding email address...');
 
 				// Prepare query string and send AJAX request
-				$.ajax({
-					url: 'lib/theme/mailchimp.php',
-					data: 'ajax=true&email=' + escape($('#email').val()),
+				jQuery.ajax({
+					type: 'POST',
+					data: {
+						action:'mailchimp_add',
+						email: jQuery("#email").val()
+					},
+					url: '<?php echo bloginfo("url"); ?>/wp-admin/admin-ajax.php',
 					success: function(msg) {
-						$('#response').html(msg);
+						jQuery('#response').html(msg);
+					},
+					error: function() {
+						jQuery('#response').html("An error occurred");
 					}
 				});
 
