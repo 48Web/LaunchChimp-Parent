@@ -6,7 +6,8 @@ $shortname = "lc";
 /* see http://wpshout.com/create-an-advanced-options-page-in-wordpress-part-2/ for setting up options */
 $options = array(
     array(
-        "desc" => __("LaunchChimp Options"),
+		"name" => __("MailChimp API Settings"),
+        "desc" => __("MailChimp API Settings"),
         "type" => "title"
     ),
     array("type" => "open"),
@@ -27,6 +28,7 @@ $options = array(
 	),
     array("type" => "close"),
 	array(
+		"name" => __("Analytics"),
 		"desc" => __("Analytics"),
 		"type" => "title"
 	),
@@ -114,11 +116,19 @@ function theme_admin() {
 
                 case "title":
                     ?>
-                        <table width="100%" border="0" style="background-color:#dceefc; padding:5px 10px;"><tr>
-                            <td colspan="2"><h3
+                        <table width="100%" border="0" style="background-color:#dceefc; padding:5px 10px;">
+							<tr>
+                            	<td colspan="2"><h3
                                     style="font-family:Georgia,'Times New Roman',Times,serif;"><?php echo $value['name']; ?></h3>
-                            </td>
-                        </tr>
+                            	</td>
+                        	</tr>
+							<?php if ($value['desc'] != "") { ?>
+								<tr><td colspan="2">
+									<small><?php echo $value['desc']; ?></small>
+								</td></tr>
+								
+							<?php } ?>
+							
 
                     <?php break;
 
