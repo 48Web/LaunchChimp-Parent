@@ -104,7 +104,7 @@ function mailchimp_add() {
 	}
 
 	// require mailchimp php class
-	require_once('lib/theme/MCAPI.class.php');
+	require_once('lib/mailchimp/MCAPI.class.php');
 
 	$api = new MCAPI($lc_mailchimp_api_key);
 	
