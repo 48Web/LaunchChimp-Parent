@@ -5,13 +5,26 @@ $shortname = "lc";
 /* setup option vars */
 /* see http://wpshout.com/create-an-advanced-options-page-in-wordpress-part-2/ for setting up options */
 $options = array(
+	/* Theme Options */
+	array(
+		"name" => $themename .__(" Options"),
+		"type" => "title"
+	),
+	array("type" => "open"),
+	array(
+		"name" => __("Show Navigation"),
+		"desc" => "",
+		"id"   => $shortname."_theme_show_nav",
+		"type" => "checkbox"
+	),
+	array("type" => "close"),
+	/* MailChimp API Settings */
     array(
 		"name" => __("MailChimp API Settings"),
         "desc" => __("MailChimp API Settings"),
         "type" => "title"
     ),
     array("type" => "open"),
-    /* INSERT THEME OPTIONS HERE */
 	array(
 		"name" => __("MailChimp API Key"),
 		"desc" => __('<a href="http://admin.mailchimp.com/account/api/" target="_blank">Grab your API Key</a>'),
@@ -27,8 +40,9 @@ $options = array(
 		"type" => "text"
 	),
     array("type" => "close"),
+    /* Google Analytics */
 	array(
-		"name" => __("Analytics"),
+		"name" => __("Google Analytics"),
 		"desc" => __("Analytics"),
 		"type" => "title"
 	),
@@ -126,7 +140,6 @@ function theme_admin() {
 								<tr><td colspan="2">
 									<small><?php echo $value['desc']; ?></small>
 								</td></tr>
-								
 							<?php } ?>
 							
 

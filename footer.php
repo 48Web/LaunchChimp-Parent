@@ -3,9 +3,13 @@
 ?>
 <div id="footer">
 	&copy; <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
-	<div id="nav">
-		<?php theme_nav(); ?>
-	</div>
+	<?php
+		if ($lc_theme_show_nav == "true") { ?>
+			<div id="nav">
+				<?php theme_nav(); ?>
+			</div>
+		<?php } 
+	?>
 </div><!--#end footer-->
 </div><!--#end container-->
 
