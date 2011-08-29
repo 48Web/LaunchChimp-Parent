@@ -25,7 +25,20 @@ $options = array(
 		"std"  => "",
 		"type" => "text"
 	),
-    array("type" => "close")
+    array("type" => "close"),
+	array(
+		"desc" => __("Analytics"),
+		"type" => "title"
+	),
+	array("type" => "open"),
+	array(
+		"name" => __("Google Analytics Key"),
+		"desc" => __("Change UA-XXXXX-X to be your site's ID"),
+		"id"   => $shortname."_google_analytics_key",
+		"std"  => "UA-XXXXX-X",
+		"type" => "text"
+	),
+	array("type" => "close")
 );
 
 // add action
