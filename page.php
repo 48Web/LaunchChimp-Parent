@@ -5,7 +5,7 @@
 	<div id="content">
 	    <?php if (have_posts()): while (have_posts()): the_post(); ?>
             <div class="post">
-                <h1><a href="<?php the_permalink() ?>" rel="permalink"><?php the_title(); ?></a></h1>
+            	<h1><a href="<?php the_permalink() ?>" rel="permalink"><?php the_title(); ?></a></h1>
                 <div class="post-content">
                     <?php echo the_content(); ?>
                 </div>

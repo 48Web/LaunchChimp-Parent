@@ -1,3 +1,14 @@
-Skeletor
+# LaunchChimp Parent Theme
+LaunchChimp themes are WordPress powered landing pages that integrate with MailChimp. This __parent theme__ provides the base codes structure for anyone to create their own WordPress theme designs with MailChimp Integration.
 
-WordPress Base Skeleton Theme
+More info at [LaunchChimp.com](http://launchchimp.com) or [on Twitter](http://twitter.com/launchchimp)
+
+# Instructions
+This is a parent theme so it will look pretty bleak when you install it. You will need to create a [child theme](http://codex.wordpress.org/Child_Themes) or adapt the stylesheet to your needs. Or check out our premium child themes (coming soon) at [LaunchChimp.com](http://codex.wordpress.org/Child_Themes)
+
+# MailChimp
+MailChimp is a great [email marketing solution](http://eepurl.com/cRtEw "email marketing") with a free plan. This product is in no way affiliated with MailChimp company but is simply built using the MailChimp API.
+
+# Licensing
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
