@@ -2,14 +2,16 @@
 	include("lib/admin/get-theme-options.php"); // load theme options
 ?>
 <div id="footer">
-	&copy; <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
 	<?php
 		if ($lc_theme_show_nav == "true") { ?>
 			<div id="nav">
 				<?php theme_nav(); ?>
 			</div>
 		<?php } 
-	?>
+	?><br />
+	&copy; <a href="<?php bloginfo('url'); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a><br />
+	Powered by <a href="http://wordpress.org" target="_blank">WordPress</a> and <a href="http://launchchimp.com" target="_blank" title="WordPress Powered Landing Pages With MailChimp">LaunchChimp</a>
+	
 </div><!--#end footer-->
 </div><!--#end container-->
 
