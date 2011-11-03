@@ -39,7 +39,36 @@ $options = array(
 		"std"  => "",
 		"type" => "text"
 	),
-    array("type" => "close"),
+   
+	/* Homepage Settings */
+	array(
+		"name"	=> __("Homepage Settings"),
+		"desc"	=> __('Change these settings to update how your homepage looks'),
+		"type"	=> "title"
+	),
+	array("type" => "open"),
+	array(
+		"name" => __("Headline"),
+		"desc" => __('Your homepage headline text'),
+		"id"   => $shortname."_homepage_headline",
+		"std"  => "",
+		"type" => "text"
+	),
+	array(
+		"name" => __("Homepage Text"),
+		"desc" => __('The text to go below your headline'),
+		"id"   => $shortname."_homepage_text",
+		"std"  => "",
+		"type" => "textarea"
+	),
+	array(
+		"name" => __("Homepage Button Text"),
+		"desc" => __('The text to go on your signup button'),
+		"id"   => $shortname."_homepage_button_text",
+		"std"  => "",
+		"type" => "text"
+	),
+	array("type" => "close"),
     /* Google Analytics */
 	array(
 		"name" => __("Google Analytics"),

@@ -6,7 +6,7 @@
 	<span id="response"></span>
 		  
 	<input type="text" name="email" id="email" />
-	<input type="submit" value="Signup Now" />
+	<input type="submit" value="<?php echo isset($lc_homepage_button_text) ? $lc_homepage_button_text : "Submit"; ?>" />
 
 	<div id="no-spam">We'll never spam or give this address away</div>
 </form>
