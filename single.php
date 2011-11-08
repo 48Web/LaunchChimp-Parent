@@ -1,5 +1,3 @@
-<?php /* Template Name: Single*/ ?>
-
 <?php get_header(); ?>
 
 	<div id="content">

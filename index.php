@@ -1,6 +1,5 @@
-<?php /* Template Name: Index */
+<?php 
 	get_header(); 
-	
 	include("lib/admin/get-theme-options.php"); // load theme options
 ?>
 
