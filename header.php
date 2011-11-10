@@ -7,7 +7,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title> <?php the_title(); ?> &raquo; <?php bloginfo('name'); ?></title>
+	<title> <?php if (!is_front_page() && !is_home() ) { the_title(); ?> &raquo; <?php } bloginfo('name'); ?></title>
 	
 	<meta name="description" content="<?php if (have_posts()): while (have_posts()): the_post(); echo strip_tags(get_the_excerpt()); endwhile; endif; ?>" />
 	
