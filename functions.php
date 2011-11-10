@@ -83,7 +83,6 @@ function theme_nav_fallback() {
 require_once( get_template_directory() .'/lib/admin/theme-options.php' );
 
 function mailchimp_add() {
-	
 	/* get theme options */
 	global $options;
 	foreach ($options as $value) {
@@ -92,24 +91,24 @@ function mailchimp_add() {
 	}
 	
 	$email = ( isset( $_POST['email'] ) ) ? $_POST['email'] : '';
+	$fname = ( isset( $_POST['fname'] ) ) ? $_POST['fname'] : '';
 	
-	if(empty($email)) {
-		echo "No Email Address Provided";
+	if (!empty($fname)) {
+		$merge_vars = array('FNAME' => $fname);
+	}
+	
+	if(empty($email) || !preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*$/i", $email)) {
+		echo '<span class="error">Please Enter A Valid Email Address</span>';
 		die();
 	}
-
-	if(!preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*$/i", $email)) {
-		echo "Email address is invalid";
-		die();
-	}
-
+	
 	// require mailchimp php class
 	require_once('lib/mailchimp/MCAPI.class.php');
 
 	$api = new MCAPI($lc_mailchimp_api_key);
 	
-	if($api->listSubscribe($lc_mailchimp_list_id, $email, '') === true) {
-		echo "Success! Check your email to confirm sign up.";
+	if($api->listSubscribe($lc_mailchimp_list_id, $email, $merge_vars) === true) {
+		get_template_part('/lib/theme/success');
 		die();
 	} else {
 		echo "Error! " .$api->errorMessage;

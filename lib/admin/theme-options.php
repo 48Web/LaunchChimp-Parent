@@ -39,7 +39,7 @@ $options = array(
 		"std"  => "",
 		"type" => "text"
 	),
-   
+   	array("type" => "close"),
 	/* Homepage Settings */
 	array(
 		"name"	=> __("Homepage Settings"),
@@ -101,13 +101,21 @@ function theme_add_admin() {
                 update_option($value['id'], $_REQUEST[$value['id']]);
             }
 
-            foreach ($options as $value) {
-                if (isset($_REQUEST[$value['id']])) {
-                    update_option($value['id'], $_REQUEST[$value['id']]);
-                } else {
-                    delete_option($value['id']);
-                }
-            }
+            foreach ($options as $value) {  
+				if( $value['type'] == 'upload' )
+				{
+					$file_uploaded = $_FILES[$value['id']];
+					if ($file_uploaded) {
+						$overrides = array('test_form' => false);
+						$file = wp_handle_upload($file_uploaded, $overrides);
+						update_option( $value['id'], $file['url'] );
+					}
+				}
+			    elseif( isset( $_REQUEST[ $value['id'] ] ) )
+				{
+					update_option( $value['id'], $_REQUEST[ $value['id'] ]  );
+				}
+			}
 
             header("Location: themes.php?page=theme-options.php&saved=true");
             die;
@@ -139,7 +147,7 @@ function theme_admin() {
     <div class="wrap">
         <h2><?php echo $themename; ?> Settings</h2>
 
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
 
         <?php foreach ($options as $value) {
             switch ($value['type']) {
@@ -293,6 +301,27 @@ function theme_admin() {
                         </tr>
 
                     <?php break;
+				
+				case "upload":
+
+					 ?>
+					<tr><td>
+					 <div class="rm_input rm_upload">
+
+						<?php if($img = get_option($value['id'])){ echo "<br /><img src='$img' width='400' /><br />"; }?>  
+
+						<label for="<?php echo $value['id']; ?>"><?php echo $value['name']; ?></label>  
+
+						<input type="file" name="<?php echo $value['id'] ?>" size="40" />
+
+						<small><?php echo $value['desc']; ?></small><div class="clearfix"></div>  
+
+					</div>
+					</td></tr>
+
+					 <?php
+
+					 break;
 
             }
         }
