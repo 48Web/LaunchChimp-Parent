@@ -96,16 +96,11 @@ function theme_add_admin() {
     if ($_GET['page'] == basename(__FILE__)) {
 
         if ('save' == $_REQUEST['action']) {
-
-            foreach ($options as $value) {
-                update_option($value['id'], $_REQUEST[$value['id']]);
-            }
-
             foreach ($options as $value) {  
 				if( $value['type'] == 'upload' )
 				{
 					$file_uploaded = $_FILES[$value['id']];
-					if ($file_uploaded) {
+					if ($file_uploaded && $file_uploaded['error'] == 0) {
 						$overrides = array('test_form' => false);
 						$file = wp_handle_upload($file_uploaded, $overrides);
 						update_option( $value['id'], $file['url'] );
@@ -332,13 +327,6 @@ function theme_admin() {
                 <input type="hidden" name="action" value="save"/>
             </p>
         </form>
-        <form method="post">
-            <p class="submit">
-                <input name="reset" type="submit" value="Reset"/>
-                <input type="hidden" name="action" value="reset"/>
-            </p>
-        </form>
-
     <?php
 
 }
